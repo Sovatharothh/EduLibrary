@@ -1,26 +1,29 @@
 document.getElementById("login-form").addEventListener("submit", async function(event) {
-    event.preventDefault();
-  
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-  
-    const response = await fetch("http://localhost:5002/login", { // Backend login endpoint
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    });
-  
-    if (response.ok) {
+  event.preventDefault();
+
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  try {
+      const response = await fetch("http://localhost:5000/api/auth/login", { 
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+      });
+
       const data = await response.json();
-      alert("Login successful!");
-      // Store JWT token in localStorage or cookies
-      localStorage.setItem("token", data.token);
-      window.location.href = "index.html"; // Redirect to homepage after successful login
-    } else {
-      const errorData = await response.json();
-      alert(`Login failed: ${errorData.message}`);
-    }
-  });
-  
+
+      if (response.ok) {
+          localStorage.setItem("token", data.body.token); // Corrected this line
+          alert("Login successful!");
+          window.location.href = "../index.html";
+      } else {
+          alert(`Login failed: ${data.message}`);
+      }
+  } catch (error) {
+      console.error("Error:", error);
+      alert("Something went wrong. Please try again.");
+  }
+});
