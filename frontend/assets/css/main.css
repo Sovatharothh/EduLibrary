@@ -1,0 +1,206 @@
+/* Main Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #0e2160;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo img {
+    width: 220px; /* Adjust as needed */
+    height: auto;
+    max-height: 100%; 
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    width: 100%; /* Ensure the full width is used */
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    margin-left: auto; /* Push the navigation to the right */
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.hero {
+    display: flex; /* Align elements in a row */
+    align-items: center; /* Center vertically */
+    justify-content: space-between; /* Space between text and image */
+    padding: 60px;
+    background-color: #fff;
+    color: rgb(29, 27, 27);
+}
+
+.hero-text {
+    flex: 1; /* Takes up available space */
+    text-align: left; /* Align text to the left */
+}
+
+#homepage-image {
+    flex: 1; /* Takes up available space */
+    display: flex;
+    justify-content: flex-end; /* Align image to the right */
+}
+
+#homepage-image img {
+    width: 90%; /* Adjust width to fit nicely */
+    height: auto;
+    max-height: 500px;
+}
+
+
+.hero h1 {
+    font-size: 3rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 15px 25px;
+    font-size: 1rem;
+    background-color: #ad0000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #800000;
+}
+
+.featured-books {
+    text-align: center;
+    padding: 50px;
+}
+
+.featured-books h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.book-item {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-item img {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.book-item h3 {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.book-item p {
+    font-size: 1rem;
+    color: #555;
+    text-align: left;
+}
+
+.why-choose-us {
+    background-color: #fff;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 250px;
+}
+
+.feature {
+    text-align: center;
+}
+
+.feature img {
+    width: 120px;
+    height: 120px;
+}
+
+/* Testimonials Section */
+.testimonials {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f4f4f4;
+}
+
+.testimonial-item {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.testimonial-image {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+.testimonial-item p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto 10px auto;
+}
+
+.testimonial-item strong {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+
+
+footer {
+    background-color: #0e2160;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}

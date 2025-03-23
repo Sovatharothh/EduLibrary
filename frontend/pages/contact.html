@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduLibrary - Contact Us</title>
+  <link rel="stylesheet" href="../assets/css/contact.css">
+  <script src="../assets/js/contact.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+          <div class="logo">
+            <img id="logo" src="../assets/images/logo.png" alt="EduLibrary Logo">
+          </div>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="categories.html">Books</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
+      </header>
+
+  <section class="hero">
+    <h1>Contact EduLibrary</h1>
+    <p>We’d love to hear from you! Feel free to reach out with any questions or feedback.</p>
+  </section>
+
+  <main>
+    <div class="contact-container">
+      <section class="contact-form">
+        <h2>Get in Touch</h2>
+        <form id="contactForm">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+        <p id="formMessage" class="hidden"></p>
+      </section>
+      
+      <section class="contact-image">
+        <img src="../assets/images/about.png" alt="Contact Us" class="contact-img">
+      </section>
+    </div>
+    
+    <section class="map">
+      <h2>Find Us Here</h2>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.760034281616!2d104.89216601533403!3d11.556373191757245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109512b5e16fcb3%3A0x5f5e9e2c647e7df6!2sPhnom%20Penh%2C%20Cambodia!5e0!3m2!1sen!2skh!4v1645730474912"
+        width="100%" height="300" allowfullscreen="" loading="lazy">
+      </iframe>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 EduLibrary. All rights reserved.</p>
+  </footer>
+</body>
+</html>

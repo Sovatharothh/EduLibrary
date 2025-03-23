@@ -1,0 +1,171 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Header */
+header {
+    background-color: #0e2160;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo img {
+    width: 220px;
+    height: auto;
+    max-height: 100%;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: auto;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+    color: rgb(35, 34, 34);
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+}
+
+/* Contact Section */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 10px;
+    padding: 50px;
+}
+
+/* Contact Form */
+.contact-form {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    max-width: 500px;
+    padding: 90px; 
+    text-align: center;
+}
+
+.contact-form h2 {
+    color: #AD0000;
+    text-align: center;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.contact-form label {
+    font-weight: bold;
+    margin: 10px 0 5px;
+    width: 100%;
+    text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    width: 105%;
+    background-color: #AD0000;
+    color: white;
+    padding: 10px;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.contact-form button:hover {
+    background-color: #8B0000;
+}
+
+/* Image Section */
+.contact-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    max-width: 50%;    /* Allow the container to adjust its width */
+}
+
+
+.contact-image img {
+    width: 100%;       /* This allows the image to resize responsively */
+    height: auto;      /* This keeps the aspect ratio intact */
+    max-width: 1000px;  /* You can adjust this value to set the maximum width */
+    max-height: 1200px; /* You can adjust this value to set the maximum height */
+}
+
+
+/* Google Map */
+.map {
+    flex: 1;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.map h2 {
+    color: #0E2160;
+}
+
+.map iframe {
+    width: 100%;
+    height: 300px; 
+    border-radius: 8px;
+    border: 1px solid #D1D5DB;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #0E2160;
+    color: white;
+    margin-top: 50px;
+}

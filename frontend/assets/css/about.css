@@ -1,0 +1,140 @@
+/* about Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  header {
+    background-color: #0e2160;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo img {
+    width: 220px; /* Adjust as needed */
+    height: auto;
+    max-height: 100%; 
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    width: 100%; /* Ensure the full width is used */
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    margin-left: auto; /* Push the navigation to the right */
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+  
+  /* About Section */
+  .about {
+    display: flex;
+    align-items: center; /* Align text and image vertically */
+    justify-content: space-between; /* Space out content */
+    padding: 20px 20px;
+    background: white;
+    flex-wrap: wrap; /* Prevents issues on smaller screens */
+}
+
+.about h2 {
+    color: #0e2160;
+  }
+
+.about h2, .about p {
+    flex: 1; /* Allows text to take up available space */
+    padding: 20px;
+}
+
+.about p {
+    font-size: 1.1rem;
+    padding: 20px;
+}
+
+#about-image {
+    flex: 1; /* Takes available space */
+    display: flex;
+    justify-content: flex-end; /* Align image to the right */
+}
+
+#about-image img {
+    width: 90%; /* Adjust width to fit nicely */
+    height: auto;
+    max-height: 600px;
+}
+
+
+button {
+  margin-left: 20px;
+  padding: 15px 25px;
+  font-size: 1rem;
+  background-color: #ad0000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #800000;
+}
+
+  
+  /* Team Section */
+  .team {
+    text-align: center;
+    padding: 40px 20px;
+  }
+  
+  .team-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .team-card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+  }
+  
+  .team-card img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #0e2160;
+    color: white;
+    margin-top: 20px;
+  }
+  

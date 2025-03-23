@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduLibrary - Categories</title>
+  <link rel="stylesheet" href="../assets/css/categories.css">
+  <script src="../assets/js/categories.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img id="logo" src="../assets/images/logo.png" alt="EduLibrary Logo">
+      </div>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="categories.html">Books</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="categories">
+      <h1>Book Categories</h1>
+      <!-- Search Bar -->
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search by title, author, topic, or year...">
+        <button onclick="searchBooks()">Search</button>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div id="filter-buttons">
+        <button class="button-value active" onclick="filterBooks('all')">All</button>
+        <button class="button-value" onclick="filterBooks('Textbooks')">Textbooks</button>
+        <button class="button-value" onclick="filterBooks('Science')">Science</button>
+        <button class="button-value" onclick="filterBooks('History')">History</button>
+        <button class="button-value" onclick="filterBooks('Biography')">Biography</button>
+        <button class="button-value" onclick="filterBooks('Adventure')">Adventure</button>
+        <button class="button-value" onclick="filterBooks('Fantasy')">Fantasy</button>
+      </div>
+
+      <!-- Main Categories Section -->
+      <div class="categories-main">
+        <div class="categories-grid" id="book-list">
+          <!-- Books will be dynamically added here -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 EduLibrary. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>
