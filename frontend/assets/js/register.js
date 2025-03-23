@@ -33,3 +33,5 @@ document.getElementById("register-form").addEventListener("submit", async functi
     alert("Something went wrong. Please try again.");
   }
 });
+
+

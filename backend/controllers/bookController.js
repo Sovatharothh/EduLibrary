@@ -84,3 +84,19 @@ exports.updateBookById = async (req, res) => {
         res.status(500).json({ status: 500, message: "Server error", body: {} });
     }
 };
+
+
+// Get a book by ID
+exports.getBookById = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const book = await Book.findById(id);
+        if (!book) {
+            return res.status(404).json({ status: 404, message: "Book not found", body: {} });
+        }
+        res.json({ status: 200, message: "Book fetched", body: book });
+    } catch (error) {
+        res.status(500).json({ status: 500, message: "Server error", body: {} });
+    }
+};

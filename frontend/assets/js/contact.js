@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault(); // Prevent default form submission
 
         const formData = {
-            name: document.getElementById("name").value.trim(),
+            fullName: document.getElementById("name").value.trim(),  // Update to fullName
             email: document.getElementById("email").value.trim(),
             subject: document.getElementById("subject").value.trim(),
             message: document.getElementById("message").value.trim(),
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 formMessage.style.color = "green";
                 contactForm.reset();
             } else {
-                formMessage.textContent = `❌ Error: ${data.error || "Something went wrong!"}`;
+                formMessage.textContent = `❌ Error: ${data.message || "Something went wrong!"}`;
                 formMessage.style.color = "red";
             }
         } catch (error) {
