@@ -20,6 +20,7 @@ async function fetchBooks() {
 function displayBooks(books) {
   const bookList = document.getElementById("book-list");
   bookList.innerHTML = ""; // Clear previous content
+  bookList.classList.add("categories-grid"); // Add grid class to the book list
 
   books.forEach(book => {
       const bookCard = document.createElement("div");
