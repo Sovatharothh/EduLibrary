@@ -1,0 +1,155 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  header {
+    background-color: #0e2160;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+  }
+  
+  .logo img {
+    width: 220px; /* Adjust as needed */
+    height: auto;
+    max-height: 100%;
+  }
+  
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    width: 100%; /* Ensure the full width is used */
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    margin-left: auto; /* Push the navigation to the right */
+  }
+  
+  nav ul li {
+    margin: 0 20px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  h1{
+    text-align: center;
+    margin: 50px;
+    color: #0e2160;
+  }
+  
+  /* Search Bar */
+  .search-bar {
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+  }
+  
+  .search-bar input {
+    width: 65%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  .search-bar button {
+    padding: 15px;
+    margin-left: 10px;
+    background-color: #ad0000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  /* Layout */
+  .content {
+    display: flex;
+    padding: 20px;
+  }
+  
+ 
+  /* Categories Main */
+  .blog-main {
+    text-align: center;
+    flex-grow: 1;
+    padding-left: 20px;
+    
+  }
+  
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 40px;
+    gap: 30px;
+    
+  }
+  
+  .blog-card {
+    background: rgb(251, 251, 251);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    width: 300px; /* Adjust width as needed */
+    display: inline-block; /* Makes cards appear side by side */
+    vertical-align: top;
+  }
+  
+  
+  .blog-card img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  .blog-card h3 {
+    font-size: 1.3rem;
+  }
+  
+  .blog-card p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .blog-card a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #0e2160;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+  .blog-card a:hover {
+      background-color: #09173a;
+  }
+
+  
+  /* Footer */
+  footer {
+    background-color: #0e2160;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  

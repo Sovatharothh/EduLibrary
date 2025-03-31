@@ -4,33 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EduLibrary - Blog</title>
-  <link rel="stylesheet" href="../css/blog.css">
+  <link rel="stylesheet" href="../assets/css/blog.css">
 </head>
 <body>
   <header>
     <nav>
-      <div class="logo">EduLibrary</div>
+      <div class="logo">
+        <img src="../assets/images/logo.png" alt="EduLibrary Logo">
+      </div>
       <ul>
         <li><a href="../index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="categories.html">Categories</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="categories.html">Books</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <section class="blog">
-      <h1>Blog Posts</h1>
-      <div id="blog-container" class="blog-grid"></div>
+    <section class="blog-container">
+      <h1>Latest Educational Blogs</h1>
+      
+      <!-- Search Bar -->
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search blogs...">
+        <button onclick="searchBlogs()">Search</button>
+      </div>
+
+      <!-- Blog Posts Grid -->
+      <div id="blog-list" class="blog-grid"></div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2023 EduLibrary. All rights reserved.</p>
+    <p>&copy; 2025 EduLibrary. All rights reserved.</p>
   </footer>
 
-  <script src="../js/app.js"></script>
+  <script src="../assets/js/blog.js" defer></script>
 </body>
 </html>
