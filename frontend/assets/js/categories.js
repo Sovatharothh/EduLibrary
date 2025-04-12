@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function fetchBooks() {
   try {
-      const response = await fetch("http://localhost:5000/api/books"); // Adjust the API URL
+      const response = await fetch("http://localhost:5000/api/books"); 
       const data = await response.json();
 
       if (data.status === 200) {
