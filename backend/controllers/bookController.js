@@ -20,6 +20,12 @@ exports.createBook = async (req, res) => {
     }
 
     try {
+        // Check if the book already exists by title
+        const existingBook = await Book.findOne({ title });
+        if (existingBook) {
+            return res.status(400).json({ status: 400, message: "Book with this title already exists" });
+        }
+
         const book = new Book({ title, author, category, year, description, coverImage });
         await book.save();
         res.status(201).json({ status: 201, message: "Book created", body: book });
@@ -27,6 +33,7 @@ exports.createBook = async (req, res) => {
         res.status(500).json({ status: 500, message: "Server error", body: {} });
     }
 };
+
 
 // Delete a book by ID
 exports.deleteBookById = async (req, res) => {
@@ -69,6 +76,12 @@ exports.updateBookById = async (req, res) => {
     }
 
     try {
+        // Check if another book with the same title exists (excluding the current book)
+        const existingBook = await Book.findOne({ title, _id: { $ne: id } });
+        if (existingBook) {
+            return res.status(400).json({ status: 400, message: "Book with this title already exists" });
+        }
+
         const book = await Book.findByIdAndUpdate(
             id,
             { title, author, category, year, description, coverImage },
