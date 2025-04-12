@@ -14,6 +14,7 @@ EduLibrary is a full-stack web application designed to manage and explore a libr
 - **Node.js**: JavaScript runtime for building the backend.
 - **Express**: Web framework for handling HTTP requests.
 - **MongoDB**: NoSQL database for storing books, users, and contact messages.
+- **S3**: For storing cover-book images.
 
 
 ## Features
