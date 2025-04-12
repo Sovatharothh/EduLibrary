@@ -43,7 +43,7 @@ EduLibrary is a full-stack web application designed to manage and explore a libr
 
 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/EduLibrary.git
+git clone https://github.com/Sovatharothh/EduLibrary.git
 cd EduLibrary
 ```
 
@@ -59,6 +59,10 @@ cd EduLibrary
     PORT=5000
     MONGO_URI=mongodb+srv://<your-mongo-uri>
     JWT_SECRET=<your-jwt-secret>
+    AWS_ACCESS_KEY_ID=<your-AWS_ACCESS_KEY_ID>
+    AWS_SECRET_ACCESS_KEY=<your- AWS_SECRET_ACCESS_KEY>
+    AWS_REGION=<your-AWS_REGION>
+    AWS_S3_BUCKET_NAME=<your-AWS_S3_BUCKET_NAME>
 
     ```
 
