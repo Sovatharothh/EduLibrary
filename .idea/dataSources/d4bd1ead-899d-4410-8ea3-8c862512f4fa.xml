@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="EduLibrary@devapi.4lisb0w.mongodb.net">
+  <database-model serializer="dbm" dbms="MONGO" family-id="MONGO" format-version="4.53">
+    <root id="1">
+      <ServerVersion>8.0.6</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="BlogAPI"/>
+    <schema id="3" parent="1" name="BlogDB"/>
+    <schema id="4" parent="1" name="CloudNativeLab"/>
+    <schema id="5" parent="1" name="CloudNativeP"/>
+    <schema id="6" parent="1" name="CloudNativeP1"/>
+    <schema id="7" parent="1" name="CloudNativeP2"/>
+    <schema id="8" parent="1" name="CloudNativeP3"/>
+    <schema id="9" parent="1" name="EduLibrary">
+      <Current>1</Current>
+    </schema>
+    <schema id="10" parent="1" name="ExpenseTracker"/>
+    <schema id="11" parent="1" name="Node-API"/>
+    <schema id="12" parent="1" name="ScheduleTask"/>
+    <schema id="13" parent="1" name="admin"/>
+    <schema id="14" parent="1" name="billing"/>
+    <schema id="15" parent="1" name="billingAPI"/>
+    <schema id="16" parent="1" name="exercise-tracker"/>
+    <schema id="17" parent="1" name="exercise_tracker"/>
+    <schema id="18" parent="1" name="firstdbapi"/>
+    <schema id="19" parent="1" name="local"/>
+    <schema id="20" parent="1" name="rolebasedauth"/>
+    <schema id="21" parent="1" name="test"/>
+  </database-model>
+</dataSource>

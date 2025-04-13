@@ -2,6 +2,44 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
+
+//function to create initial admin user if one doesn't exist
+
+async function createInitialAdmin() {
+    try {
+        const existingAdmin = await User.findOne({ role: "admin" });
+
+        if (!existingAdmin) {
+            const adminUsername = process.env.INITIAL_ADMIN_USERNAME;
+            const adminPassword = process.env.INITIAL_ADMIN_PASSWORD;
+            const adminEmail = process.env.INITIAL_ADMIN_EMAIL; // Optional
+
+            if (!adminUsername || !adminPassword) {
+                console.warn("INITIAL_ADMIN_USERNAME and INITIAL_ADMIN_PASSWORD environment variables must be set to create the initial admin user.");
+                return;
+            }
+
+            const hashedPassword = await bcrypt.hash(adminPassword, 10);
+
+            const newAdmin = new User({
+                fullName: adminUsername, // You can decide what to use as fullName
+                email: adminEmail || `${adminUsername}@elib.com`, // Provide a default if not set
+                password: hashedPassword,
+                role: "admin",
+            });
+
+            await newAdmin.save();
+            console.log("Initial admin user created successfully.");
+        } else {
+            console.log("Admin user already exists.");
+        }
+    } catch (error) {
+        console.error("Error creating initial admin user:", error);
+    }
+}
+
+exports.createInitialAdmin = createInitialAdmin;
+
 // Register a new user
 exports.register = async (req, res) => {
     try {
