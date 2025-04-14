@@ -22,7 +22,7 @@ async function createInitialAdmin() {
             const hashedPassword = await bcrypt.hash(adminPassword, 10);
 
             const newAdmin = new User({
-                fullName: adminUsername, // You can decide what to use as fullName
+                username: adminUsername, // You can decide what to use as fullName
                 email: adminEmail || `${adminUsername}@elib.com`, // Provide a default if not set
                 password: hashedPassword,
                 role: "admin",
