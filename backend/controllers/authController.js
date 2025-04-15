@@ -58,6 +58,7 @@ exports.login = async (req, res) => {
         }
 
         // Generate JWT token
+        console.log("JWT_SECRET in authController:", process.env.JWT_SECRET);
         const token = jwt.sign({ userId: user._id, role: user.role }, process.env.JWT_SECRET, { expiresIn: "1d" });
 
         // Return user details and token in the response body

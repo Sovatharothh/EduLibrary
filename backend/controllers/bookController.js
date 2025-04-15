@@ -1,7 +1,10 @@
 const Book = require("../models/Book");
 const { uploadFileToS3 } = require("../utils/s3Uploader");
 
-// Get all books
+// Helper to check user role
+const isServiceUser = (role) => role === "service_user";
+
+// Get all books (accessible to all roles)
 exports.getAllBooks = async (req, res) => {
   try {
     const books = await Book.find();
@@ -11,8 +14,15 @@ exports.getAllBooks = async (req, res) => {
   }
 };
 
-// Create a new book
+// Create a new book (restricted for service_user)
 exports.createBook = async (req, res) => {
+  if (isServiceUser(req.user.role)) {
+    return res.status(403).json({
+      status: 403,
+      message: "Access denied. Service users cannot create books.",
+    });
+  }
+
   const { title, author, category, year, description } = req.body;
   const file = req.file;
 
@@ -57,16 +67,23 @@ exports.createBook = async (req, res) => {
   }
 };
 
-// Delete a book by ID
+// Delete a book by ID (restricted for service_user)
 exports.deleteBookById = async (req, res) => {
+  if (isServiceUser(req.user.role)) {
+    return res.status(403).json({
+      status: 403,
+      message: "Access denied. Service users cannot delete books.",
+    });
+  }
+
   const { id } = req.params;
 
   try {
     const book = await Book.findByIdAndDelete(id);
     if (!book) {
       return res
-        .status(404)
-        .json({ status: 404, message: "Book not found", body: {} });
+          .status(404)
+          .json({ status: 404, message: "Book not found", body: {} });
     }
     res.json({ status: 200, message: "Book deleted", body: book });
   } catch (error) {
@@ -74,16 +91,23 @@ exports.deleteBookById = async (req, res) => {
   }
 };
 
-// Delete a book by title
+// Delete a book by title (restricted for service_user)
 exports.deleteBookByTitle = async (req, res) => {
+  if (isServiceUser(req.user.role)) {
+    return res.status(403).json({
+      status: 403,
+      message: "Access denied. Service users cannot delete books.",
+    });
+  }
+
   const { title } = req.params;
 
   try {
     const book = await Book.findOneAndDelete({ title });
     if (!book) {
       return res
-        .status(404)
-        .json({ status: 404, message: "Book not found", body: {} });
+          .status(404)
+          .json({ status: 404, message: "Book not found", body: {} });
     }
     res.json({ status: 200, message: "Book deleted", body: book });
   } catch (error) {
@@ -91,16 +115,23 @@ exports.deleteBookByTitle = async (req, res) => {
   }
 };
 
-// Update a book by ID
+// Update a book by ID (restricted for service_user)
 exports.updateBookById = async (req, res) => {
+  if (isServiceUser(req.user.role)) {
+    return res.status(403).json({
+      status: 403,
+      message: "Access denied. Service users cannot update books.",
+    });
+  }
+
   const { id } = req.params;
   const { title, author, category, year, description } = req.body;
   const file = req.file;
 
   if (!title || !author || !category || !year || !description) {
     return res
-      .status(400)
-      .json({ status: 400, message: "All fields are required" });
+        .status(400)
+        .json({ status: 400, message: "All fields are required" });
   }
 
   try {
@@ -116,26 +147,26 @@ exports.updateBookById = async (req, res) => {
 
     if (file) {
       const uploadResult = await uploadFileToS3(file);
-      coverImage = uploadResult.fileUrl; // ✅ Use public S3 URL
+      coverImage = uploadResult.fileUrl;
     }
 
     const book = await Book.findByIdAndUpdate(
-      id,
-      {
-        title,
-        author,
-        category,
-        year,
-        description,
-        ...(coverImage && { coverImage }), // only update coverImage if new one is provided
-      },
-      { new: true }
+        id,
+        {
+          title,
+          author,
+          category,
+          year,
+          description,
+          ...(coverImage && { coverImage }), // Only update coverImage if a new one is provided
+        },
+        { new: true }
     );
 
     if (!book) {
       return res
-        .status(404)
-        .json({ status: 404, message: "Book not found", body: {} });
+          .status(404)
+          .json({ status: 404, message: "Book not found", body: {} });
     }
 
     res.json({ status: 200, message: "Book updated", body: book });
@@ -145,7 +176,7 @@ exports.updateBookById = async (req, res) => {
   }
 };
 
-// Get a book by ID
+// Get a book by ID (accessible to all roles)
 exports.getBookById = async (req, res) => {
   const { id } = req.params;
 
@@ -153,8 +184,8 @@ exports.getBookById = async (req, res) => {
     const book = await Book.findById(id);
     if (!book) {
       return res
-        .status(404)
-        .json({ status: 404, message: "Book not found", body: {} });
+          .status(404)
+          .json({ status: 404, message: "Book not found", body: {} });
     }
     res.json({ status: 200, message: "Book fetched", body: book });
   } catch (error) {
