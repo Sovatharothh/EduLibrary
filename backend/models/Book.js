@@ -11,6 +11,7 @@ const bookSchema = new mongoose.Schema({
     year: { type: Number, required: true },
     description: { type: String, required: true },
     coverImage: { type: String, required: true }, // Image URL
+    seeMore: { type: String, trim: true}, // here I added this as requested
 }, { timestamps: true });
 
 module.exports = mongoose.model("Book", bookSchema);

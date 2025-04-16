@@ -4,7 +4,7 @@ const { uploadFileToS3 } = require("../utils/s3Uploader");
 // Get all books
 exports.getAllBooks = async (req, res) => {
   try {
-    const books = await Book.find();
+    const books = await Book.find(); // This will include 'seeMore'
     res.json({ status: 200, message: "Books fetched", body: books });
   } catch (error) {
     res.status(500).json({ status: 500, message: "Server error", body: {} });
@@ -13,7 +13,7 @@ exports.getAllBooks = async (req, res) => {
 
 // Create a new book
 exports.createBook = async (req, res) => {
-  const { title, author, category, year, description } = req.body;
+  const { title, author, category, year, description, seeMore } = req.body; // Added seeMore
   const file = req.file;
 
   if (!title || !author || !category || !year || !description || !file) {
@@ -42,6 +42,7 @@ exports.createBook = async (req, res) => {
       year,
       description,
       coverImage,
+      seeMore, // Include seeMore when creating the book
     });
 
     await book.save();
@@ -94,7 +95,7 @@ exports.deleteBookByTitle = async (req, res) => {
 // Update a book by ID
 exports.updateBookById = async (req, res) => {
   const { id } = req.params;
-  const { title, author, category, year, description } = req.body;
+  const { title, author, category, year, description, seeMore } = req.body;
   const file = req.file;
 
   if (!title || !author || !category || !year || !description) {
@@ -127,6 +128,7 @@ exports.updateBookById = async (req, res) => {
         category,
         year,
         description,
+        seeMore, // Include seeMore when updating the book
         ...(coverImage && { coverImage }), // only update coverImage if new one is provided
       },
       { new: true }
@@ -150,7 +152,7 @@ exports.getBookById = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const book = await Book.findById(id);
+    const book = await Book.findById(id); // This will include 'seeMore'
     if (!book) {
       return res
         .status(404)
