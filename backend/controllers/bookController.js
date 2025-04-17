@@ -16,7 +16,7 @@ exports.createBook = async (req, res) => {
   const { title, author, category, year, description, seeMore } = req.body; // Added seeMore
   const file = req.file;
 
-  if (!title || !author || !category || !year || !description || !file) {
+  if (!title || !author || !category || !year || !description || !file, !seeMore) {
     return res.status(400).json({
       status: 400,
       message: "All fields including image are required",
@@ -98,7 +98,7 @@ exports.updateBookById = async (req, res) => {
   const { title, author, category, year, description, seeMore } = req.body;
   const file = req.file;
 
-  if (!title || !author || !category || !year || !description) {
+  if (!title || !author || !category || !year || !description || !seeMore) {
     return res
       .status(400)
       .json({ status: 400, message: "All fields are required" });
