@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin - Book Management | EduLibrary</title>
+  <link rel="stylesheet" href="../assets/css/bookManagement.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="../assets/images/logo.png" alt="EduLibrary Logo" />
+      </div>
+      <ul>
+        <li><a href="../pages/profile.html">Profile</a></li>
+        <li><a href="#" onclick="logout()">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+  <h1>Admin Book Management</h1>
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search by title, author, category, or year..." onkeyup="searchBooks()">
+    <button onclick="searchBooks()">Search</button>
+  </div>
+
+      <!-- Filter Buttons -->
+      <div id="filter-buttons">
+        <button class="button-value active" onclick="filterBooks('all')">All</button>
+        <button class="button-value" onclick="filterBooks('Textbooks')">Textbooks</button>
+        <button class="button-value" onclick="filterBooks('Science')">Science</button>
+        <button class="button-value" onclick="filterBooks('History')">History</button>
+        <button class="button-value" onclick="filterBooks('Biography')">Biography</button>
+        <button class="button-value" onclick="filterBooks('Adventure')">Adventure</button>
+        <button class="button-value" onclick="filterBooks('Fantasy')">Fantasy</button>
+      </div>
+
+  <main>
+    <section id="bookListSection">
+      <button id="createBookBtn" class="floating-btn">+</button>
+      <section id="bookList" class="book-card"></section>
+    </section>
+
+    <section id="createBookSection" class="hidden">
+      <h1 id="formTitle">Create New Book</h1>
+      <form id="bookForm">
+        <input type="hidden" id="bookId" />
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" id="title" required />
+          </div>
+          <div class="form-group">
+            <label for="author">Author</label>
+            <input type="text" id="author" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="category">Category</label>
+            <select id="category" required>
+              <option value="">-- Select Category --</option>
+              <option value="Textbooks">Textbooks</option>
+              <option value="Science">Science</option>
+              <option value="History">History</option>
+              <option value="Biography">Biography</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Fantasy">Fantasy</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="year">Year</label>
+            <input type="number" id="year" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Book Description</label>
+          <textarea id="description" rows="5" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="seeMore">See More (optional)</label>
+          <input type="url" id="seeMore" />
+        </div>
+
+        <div class="form-group">
+          <label for="coverImage">Upload Cover Image</label>
+          <input type="file" id="coverImage" accept="image/*" />
+          <img id="preview" style="max-width: 120px; margin-top: 10px; display: none;" />
+        </div>
+
+        <div class="form-actions">
+          <button type="submit">Submit</button>
+          <button type="button" class="cancel" onclick="cancelForm()">Cancel</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="../assets/js/bookManagement.js"></script>
+</body>
+</html>

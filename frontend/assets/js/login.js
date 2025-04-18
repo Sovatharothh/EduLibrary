@@ -23,11 +23,19 @@ document.getElementById("login-form").addEventListener("submit", async function(
 
     if (response.ok) {
       console.log("Login successful:", data.body); // Log data for debugging
-      localStorage.setItem("token", data.body.token);  // Save token
-      localStorage.setItem("user", JSON.stringify(data.body.user));  // Save user info
+
+      // Save token, user info, and role in localStorage
+      localStorage.setItem("token", data.body.token);  // Save JWT token
+      localStorage.setItem("user", JSON.stringify(data.body)); // Save the full user object
 
       alert("Login successful!");
-      window.location.href = "../index.html"; // Redirect to home page or dashboard
+
+      // Redirect based on user role
+      if (data.body.role === "admin") {
+        window.location.href = "../admin/bookManagement.html"; // Admin dashboard
+      } else {
+        window.location.href = "../index.html"; // Regular user homepage
+      }
     } else {
       alert(`Login failed: ${data.message}`);
     }
