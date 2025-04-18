@@ -126,13 +126,13 @@ body {
   
   /* Hidden Class */
   .hidden {
-    display: none;
+    display: none !important;
   }
   
   /* Book List Styles */
   #bookList {
     max-width: 1700px;
-    margin: 10px auto;
+    margin: 40px auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     gap: 30px;

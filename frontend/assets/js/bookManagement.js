@@ -15,6 +15,8 @@ const bookListSection = document.getElementById("bookListSection");
 const createBookSection = document.getElementById("createBookSection");
 const formTitle = document.getElementById("formTitle");
 const token = localStorage.getItem("token");
+const searchBar = document.querySelector('.search-bar');
+const filterButtons = document.getElementById('filter-buttons');
 
 // Event Listeners
 createBookBtn.addEventListener("click", showCreateForm);
@@ -29,6 +31,8 @@ function showCreateForm() {
   formTitle.textContent = "Create New Book";
   bookListSection.classList.add("hidden");
   createBookSection.classList.remove("hidden");
+  searchBar.classList.add('hidden');
+  filterButtons.classList.add('hidden');
   window.scrollTo(0, 0);
 }
 
@@ -45,12 +49,16 @@ function showEditForm(book) {
   formTitle.textContent = "Edit Book";
   bookListSection.classList.add("hidden");
   createBookSection.classList.remove("hidden");
+  searchBar.classList.add('hidden');
+  filterButtons.classList.add('hidden');
   window.scrollTo(0, 0);
 }
 
 function cancelForm() {
   bookListSection.classList.remove("hidden");
   createBookSection.classList.add("hidden");
+  searchBar.classList.remove('hidden');
+  filterButtons.classList.remove('hidden');
 }
 
 function handleImageUpload() {
@@ -137,7 +145,7 @@ function filterBooks(category) {
   const books = document.querySelectorAll(".book-item");
 
   books.forEach(book => {
-    const bookCategory = book.querySelector("p:nth-of-type(2)").textContent.split(": ")[1].toLowerCase(); // Correct category index
+    const bookCategory = book.querySelector("p:nth-of-type(2)").textContent.split(": ")[1].toLowerCase();
     if (category === "all" || bookCategory === category.toLowerCase()) {
       book.style.display = "flex";
     } else {
@@ -152,8 +160,6 @@ function filterBooks(category) {
   document.querySelector(`button[onclick="filterBooks('${category}')"]`).classList.add("active");
 }
 
-
-//function to load books from the API
 async function loadBooks() {
   try {
     const res = await fetch("http://localhost:5000/api/books");
@@ -215,8 +221,13 @@ async function deleteBook(bookId) {
 function logout() {
   localStorage.removeItem("token");
   localStorage.removeItem("user");
-  window.location.href = "../index.html"; // Redirect to home page after logout
+  window.location.href = "../index.html";
 }
 
 // Initialize
-window.addEventListener("DOMContentLoaded", loadBooks);
+window.addEventListener("DOMContentLoaded", () => {
+  loadBooks();
+  // Ensure search and filter are visible on initial load
+  searchBar.classList.remove('hidden');
+  filterButtons.classList.remove('hidden');
+});
