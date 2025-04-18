@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Profile</title>
+  <link rel="stylesheet" href="../assets/css/profile.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="../assets/images/logo.png" alt="EduLibrary Logo" />
+      </div>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="categories.html">Books</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="profile.html" class="active">Profile</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="profile-container">
+    <h1>User Profile</h1>
+    <div class="profile-card">
+      <img src="../assets/images/bot.png" alt="Profile Picture" />
+      
+      <!-- Profile Display -->
+      <div id="profile-display">
+        <h2 id="username">Loading...</h2>
+        <p id="email">Loading...</p>
+        <button onclick="logout()">Logout</button>
+        <button onclick="toggleEdit()">Edit Profile</button>
+      </div>
+
+      <!-- Edit Profile Form -->
+      <div id="profile-edit" style="display: none;">
+        <input type="text" id="edit-username" placeholder="Username" />
+        <input type="email" id="edit-email" placeholder="Email" />
+        <button onclick="saveProfile()">Save</button>
+        <button onclick="cancelEdit()">Cancel</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 EduLibrary. All rights reserved.</p>
+  </footer>
+
+  <script src="../assets/js/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* Header */
+header {
+  background-color: #0e2160;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.logo img {
+  width: 220px;
+  height: auto;
+  max-height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  width: 100%;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin-left: auto;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0 20px;
+  transition: transform 0.3s ease;
+}
+
+nav ul li:hover {
+  transform: scale(1.1);
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Main takes remaining height to push footer down */
+main {
+  flex: 1;
+}
+
+/* Profile layout */
+.profile-container {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.profile-card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 280px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.profile-card img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.profile-card h2 {
+  margin: 10px 0 5px 0;
+  color: #0e2160;
+}
+
+.profile-card p {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 12px 24px;
+  background-color: #ad0000;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #800000;
+  transform: scale(1.05);
+}
+
+/* Edit Profile Form */
+#profile-edit {
+  background-color: white;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+#profile-edit input {
+  width: 100%;
+  padding: 12px;
+  text-align: center;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+#profile-edit input:focus {
+  border-color: #0e2160;
+  outline: none;
+}
+
+#profile-edit button {
+  text-align: center;
+  padding: 12px 24px;
+  background-color: #0e2160;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 100px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin: 15px;
+}
+
+#profile-edit button:hover {
+  background-color: #003366;
+  transform: scale(1.05);
+}
+
+#profile-edit button:last-child {
+  background-color: #ad0000;
+}
+
+#profile-edit button:last-child:hover {
+  background-color: #800000;
+}
+
+#profile-edit.show {
+  display: flex;
+}
+
+/* Footer sticks to bottom */
+footer {
+  background-color: #0e2160;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: auto;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .profile-card {
+    width: 90%;
+  }
+
+  .profile-form {
+    width: 90%;
+  }
+}

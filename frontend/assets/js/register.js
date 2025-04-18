@@ -24,7 +24,7 @@ document.getElementById("register-form").addEventListener("submit", async functi
 
     if (response.ok) {
       alert("Registration successful! Please log in.");
-      window.location.href = "../index.html"; // Redirect to login page
+      window.location.href = "../index.html"; // Redirect to main page
     } else {
       alert(`Registration failed: ${result.message}`);
     }
