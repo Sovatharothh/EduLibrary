@@ -1,17 +1,17 @@
 const express = require('express');
-const { getAllUsers, getUserProfile, updateUserProfile, deleteUserByName } = require('../controllers/userController');
+const { getAllUsers, getUserProfile, updateProfileById, createUser, updateUser,deleteUserById} = require('../controllers/userController');
 const { verifyToken, authorizeAdmin } = require("../middleware/authMiddleware"); // Import the middleware
 
 const router = express.Router();
 
 // Get all users (admin only)
 router.get('/', verifyToken, authorizeAdmin, getAllUsers);
-// delete user by name (only admin)
-router.delete('/profile/:fullname', verifyToken, authorizeAdmin, deleteUserByName);
+router.post('/', verifyToken, authorizeAdmin, createUser);  
+router.put('/:userId', verifyToken, authorizeAdmin, updateUser);  
+router.delete('/:userId', verifyToken, authorizeAdmin, deleteUserById);
 
-
-// Get a user's profile (user only)
+// Get a user's profile 
 router.get('/profile', verifyToken, getUserProfile);
-router.put('/profile', verifyToken, updateUserProfile);
+router.put('/profile/:userId', verifyToken, updateProfileById);
 
 module.exports = router;

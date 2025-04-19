@@ -32,7 +32,8 @@ exports.register = async (req, res) => {
             message: "User registered successfully",
             body: {
                 fullName: newUser.fullName,
-                email: newUser.email
+                email: newUser.email,
+                role: newUser.role,
             }
         });
     } catch (error) {

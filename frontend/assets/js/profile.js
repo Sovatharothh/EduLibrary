@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   
     const token = localStorage.getItem("token");
   
-    fetch("http://localhost:5000/api/users/profile", {
+    fetch("http://localhost:5000/api/users/profile/${userId}", {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${token}`,
